@@ -1,0 +1,7 @@
+1. A comapitble Linux host.
+2. 2 GB or more RAM per machine.
+3. 2 CPUs or more.
+4. Full network connectvity between all machine in the cluster.
+5. Unique hostname, MAC address, and product_uuid for every node.
+6. Certain ports are open on your machine.
+7. Swap configuration Turn off.
