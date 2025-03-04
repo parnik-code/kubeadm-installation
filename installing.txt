@@ -1,1 +1,46 @@
 
+create 3 instance
+change the user to "sudo su" command to root.
+and then in the master instance you have to open ports: so we can open "ALL TCP for the instance you can give the instance name".
+now we ahave to use command in every instance
+now you can google kubernetes official documentation and search for install kubeadm.
+search for container runtime and open it
+then open IPv4 forwading and apply the command in all 3 instances.
+then we enable the IPv4 forwarding in all the instances.
+then apply the command "sudo swapoff -a" to stop the swap.
+you can also check swap off by using "cat /etc/fstab"
+
+
+Now we are going to install contained.
+for this open the link  getting started with contained
+and go with option2 and open the ubuntu one.
+and install docker by runing command one by one.
+in the last command we only insatll container d by using the command "sudo apt-get install containerd.io"
+
+after that we have to figure out about containerd so :
+now we have to apply this command "containerd config default > /etc/containerd/config.toml" 
+and we can check by using vi /etc/containerd/config.toml
+and after that open this "containerd config default > /etc/containerd/config.toml"  file and scroll down and "systemdCgroup =true" in all 3 instances.
+
+
+After all this we have to restart the containerd by using this command : "sudo systemctl restart contained"
+and we can also check the status of conatinerd by using the command "sudo systemctl status contained.
+
+Now we are going to install the kubeadm, kubectl, and kubelet.
+now we are going to apply all the command one by one again for install the kubeadm, kubectl, and kubelet.
+Now last command we have apply :---------------------------------------------------------------------
+"kubeadm init --apiserver-advertise-address 172.31.24.203 --pod-network-cidr 10.244.0.0/16 --cri-socket unix:///var/run/containerd/containerd.sock"
+--apiserver-advertise-address:   this we can find in page : "https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/"
+172.31.24.203 this is master instance private IP
+--pod-network-cidr  this we can find in :"https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/" in the section of installing a pods networks add on.
+10.244.0.0/16 this we can find " we have to search for addon and then go to that page look for flannel and open it then you can see the section for deploying flannel with kubectl.
+--cri-socket this you can find on the page "https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/" under the section of Initializing your control-plane node  3 number.
+unix:///var/run/containerd/containerd.sock" and this you can find by clicking on this : "--cri-socket" you can find.
+
+
+---------------------------------------------------------------------------------------------
+after that terminal provide you some command you have to use first command you use as ubuntu user so you exit the root one
+second command you have to use in worker1 and worker2 and check the status
+
+
+after that you have to isnatll the plugin from wavenet :-----"kubectl apply -f https://reweave.azurewebsites.net/k8s/v1.29/net.yaml" ----- change the verion only you can find in the addon page.
