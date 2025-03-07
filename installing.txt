@@ -12,7 +12,7 @@ you can also check swap off by using "cat /etc/fstab"
 
 
 Now we are going to install contained.
-for this open the link  getting started with contained
+for this open the link  getting started with containerd
 and go with option2 and open the ubuntu one.
 and install docker by runing command one by one.
 in the last command we only insatll container d by using the command "sudo apt-get install containerd.io"
