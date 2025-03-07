@@ -25,8 +25,21 @@ and after that open this "containerd config default > /etc/containerd/config.tom
 
 After all this we have to restart the containerd by using this command : "sudo systemctl restart contained"
 and we can also check the status of conatinerd by using the command "sudo systemctl status contained.
-
+<-------------------------------------------------------------------------------------------------->
 Now we are going to install the kubeadm, kubectl, and kubelet.
+go to this page: https://v1-31.docs.kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/
+now copy command one by one and install in the all instance
+1. sudo apt-get update
+2. sudo apt-get install -y apt-transport-https ca-certificates curl gpg
+3. curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.31/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
+4. echo 'deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.31/deb/ /' | sudo tee /etc/apt/sources.list.d/kubernetes.list
+5. sudo apt-get update
+6. sudo apt-get install -y kubelet kubeadm kubectl
+7. sudo apt-mark hold kubelet kubeadm kubectl
+
+
+
+<------------------------------------------------------------------------------------------------------>
 now we are going to apply all the command one by one again for install the kubeadm, kubectl, and kubelet.
 Now last command we have apply :---------------------------------------------------------------------
 "kubeadm init --apiserver-advertise-address 172.31.24.203 --pod-network-cidr 10.244.0.0/16 --cri-socket unix:///var/run/containerd/containerd.sock"
@@ -42,5 +55,5 @@ unix:///var/run/containerd/containerd.sock" and this you can find by clicking on
 after that terminal provide you some command you have to use first command you use as ubuntu user so you exit the root one
 second command you have to use in worker1 and worker2 and check the status
 
-
+<-----------------------------------you can check your version by running the command kubectl version --client --------------------------------->
 after that you have to isnatll the plugin from wavenet :-----"kubectl apply -f https://reweave.azurewebsites.net/k8s/v1.29/net.yaml" ----- change the verion only you can find in the addon page.
