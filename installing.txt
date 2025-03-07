@@ -60,5 +60,10 @@ after that you have to isnatll the plugin from wavenet :-----"kubectl apply -f h
 
 
 <.................................................................secutity..............................>
-for security we have to check our kubernetes cluster by running these command
+for security we have to check our kubernetes cluster by running these command open this "https://github.com/Shopify/kubeaudit/releases" this is for to check any security checks
+and search for " tar -xvzf kubeaudit_linux_amd64.tar.gz
+and download this in master node through "wget tar -xvzf kubeaudit_linux_amd64.tar.gz"
+then extract it " tar -xvzf filename"
+then move this file to " sudo mv kubeaudit /usr/local/bin/
+then apply the command "kubeaudit all"
 
