@@ -57,3 +57,8 @@ second command you have to use in worker1 and worker2 and check the status
 
 <-----------------------------------you can check your version by running the command kubectl version --client --------------------------------->
 after that you have to isnatll the plugin from wavenet :-----"kubectl apply -f https://reweave.azurewebsites.net/k8s/v1.29/net.yaml" ----- change the verion only you can find in the addon page.
+
+
+<.................................................................secutity..............................>
+for security we have to check our kubernetes cluster by running these command
+
